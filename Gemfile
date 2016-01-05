@@ -1,7 +1,0 @@
-gem 'rspec'
-gem 'cucumber'
-gem 'capybara'
-gem 'selenium-webdriver'
-gem 'require_all'
-gem 'pry'
-gem 'site_prism'

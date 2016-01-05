@@ -1,0 +1,20 @@
+
+#addUser.modal.fade(role='dialog', aria-hidden='true')
+  .modal-dialog
+    .modal-content
+      .modal-header
+        button.close(type='button', data-dismiss='modal') ×
+        h4.modal-title 添加用户
+      .modal-body
+        form.add-user
+          .user
+            input#Id(type='text' placeholder='账号')
+            input#psd(type='text' placeholder='密码')
+            input#type(type='text' placeholder='用户类型')
+            input#name(type='text' placeholder='用户姓名')
+            input#klass(type='text' placeholder='班级')
+            input#phone(type='text' placeholder='电话')
+            input#address(type='text' placeholder='地址')
+          .error
+            | 关键信息不能为空!
+          button.adduser(type='button') 确定

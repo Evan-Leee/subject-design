@@ -2,8 +2,70 @@ body {
     font-family: "Segoe UI", "Lucida Grande", Helvetica, Arial, "Microsoft YaHei", FreeSans, Arimo, "Droid Sans", "wenquanyi micro hei", "Hiragino Sans GB", "Hiragino Sans GB W3", FontAwesome, sans-serif;
 }
 
+.header{
+  margin: 0 auto;
+  max-width: 1000px;
+  text-align: center;
+  border-bottom: 3px solid #6d6d6d;
+}
+
+
+
+.header-bottom {
+    padding: 1em 0;
+}
+
+
+/*----*/
+.top-nav ul li{
+    display: inline-block;
+}
+.top-nav ul li a {
+    position: relative;
+    display: inline-block;
+    margin: 0 2em 0 0;
+    outline: none;
+    color: #838383;
+    text-decoration: none;
+    letter-spacing: 5px;
+    text-shadow: 0 0 1px rgba(255,255,255,0.3);
+    font-size: 1.25em;
+}
+.top-nav ul li a::before {
+    color: #000;
+    content: attr(data-hover);
+    position: absolute;
+    opacity: 0;
+    text-shadow: 0 0 1px rgba(255,255,255,0.3);
+    -webkit-transform: scale(1.1) translateX(10px) translateY(-10px) rotate(4deg);
+    -moz-transform: scale(1.1) translateX(10px) translateY(-10px) rotate(4deg);
+    transform: scale(1.1) translateX(10px) translateY(-10px) rotate(4deg);
+    -webkit-transition: -webkit-transform 0.3s, opacity 0.3s;
+    -moz-transition: -moz-transform 0.3s, opacity 0.3s;
+    transition: transform 0.3s, opacity 0.3s;
+    pointer-events: none;
+}
+.top-nav ul li a:hover::before,
+.top-nav ul li a:focus::before {
+    -webkit-transform: scale(1) translateX(0px) translateY(0px) rotate(0deg);
+    -moz-transform: scale(1) translateX(0px) translateY(0px) rotate(0deg);
+    transform: scale(1) translateX(0px) translateY(0px) rotate(0deg);
+    opacity: 1;
+}
+.top-nav ul li.active a {
+    color:#000;
+}
+/*----*/
+.top-nav span.menu:before{
+
+    cursor:pointer;
+    width:100%;
+}
+.top-nav span.menu{
+    display: none;
+}
 div.content-head {
-    margin: 40px auto;
+    margin: 30px auto;
     max-width: 1000px;
     text-align: center;
 }
@@ -14,33 +76,24 @@ div.content-head {
     vertical-align: middle;
 }
 
+
+
 div.content-head > span {
     margin-left: 20px;
 }
 
-div.content-middle {
+div.content-middle, div.events, div.profile {
     max-width: 1000px;
     margin: 20px auto;
 }
 
-div.result {
+div.student {
     max-width: 1000px;
     margin: 20px auto;
-    position: relative;
     border: none;
-    border-bottom: 1px dashed black;
-    padding: 20px;
 }
 
-div.result-content {
-    width: 85%;
-    display: inline-block;
-    position: absolute;
-    top: 0;
-    left: 0;
-}
-
-span.title {
+span.name {
     width: 70%;
     white-space:nowrap;
     overflow:hidden;
@@ -49,23 +102,41 @@ span.title {
     position: absolute;
     top: 0;
     left: 0;
+    -webkit-transition: font-size 0.5s, color 0.5s;
+    -moz-transition: font-size 0.5s, color 0.5s;
+    -ms-transition: font-size 0.5s, color 0.5s;
+    -o-transition: font-size 0.5s, color 0.5s;
+    transition: font-size 0.5s, color 0.5s;
+}
+
+span.name:hover{
+  font-size: 25px;
+  color: #888;
 }
 
 
-span.created {
+span.klass {
     font-size: 14px;
     position: absolute;
     top: 15px;
-    right: 0;
+    right: 200px;
 }
 
-button.delete {
-
-    position: absolute;
-    top: 5px;
-    right: 0;
+a:hover,a:focus{
+  text-decoration: none;
 }
 
+.panel-heading a.delete {
+  position: absolute;
+  top: 4px;
+  right: 0;
+  margin-right: 10px;
+  padding-left: 43px;
+  display: none;
+}
+div.panel-heading{
+  position: relative;
+}
 div.content-foot {
     margin: 0 auto;
     max-width: 1000px;
@@ -76,16 +147,17 @@ button.add {
     position: absolute;
     top: 15px;
     left: 10px;
+    display: none;
 }
 
-#page.m-pagination{
+#page.m-pagination, #eventpage.m-pagination{
     font-size: 15px;
     position: absolute;
     top: 0;
     right: 10px;
 }
 
-button {
+button, a.delete {
     font-size: 15px;
     width: 12%;
     border: 1px solid #ddd;
@@ -94,38 +166,46 @@ button {
     padding: 6px 0;
     cursor: pointer;
     color: #888;
+    transition: background 0.6s, color 0.6s;
+    outline:none
 }
 
-button:hover{
-    background: #eee;
+button:hover, a.delete:hover{
+  background: #000;
+  color: #fff;
 }
 
 
 em.high-light {
-    background: #54679D;
+    background: #888;
 }
 
-div.bookmarks,div.address {
+div.bookmarks {
+
     font-size: 20px;
     margin-top: 15px;
 }
 
  
-input {
+input, textarea{
     border: 1px solid #ccc;
-    border-radius: 2px;
-    outline-color: #337ab7;
+    border-radius: 10px;
+    visibility: visible;
+    animation-delay: 0.5s;
+    animation-name: fadeInLeft;
+    outline: none;
+    transition: border 0.4s;
 }
 
-input:focus{
-    border: 1px solid #fff;
+input:focus, input:hover, textarea:focus, textarea:hover{
+    border: 1px solid black;
 }
 
 form.addbookmark {
     text-align: center;
 }
 
-button#add{
+button.submit{
     margin-top: 26px;
     width: 22%;
 }
@@ -134,4 +214,162 @@ div.error {
     margin-top: 15px;
     color: red;
     display: none;
+}
+form.login-form {
+  text-align: center;
+  margin-top: 100px;
+}
+
+form.login-form span{
+  color: #888;
+}
+
+div.user-name, div.password{
+  margin-bottom: 20px;
+  font-size: 25px;
+}
+
+#userName {
+  margin-left: 20px;
+}
+
+#password {
+  margin-left: 40px;
+}
+
+button.login{
+  font-size: 20px;
+  margin-top: 30px;
+  width: 30%;
+  border-radius: 10px;
+}
+
+
+a.forgot {
+  display: block;
+  color: #888;
+  width: 200px;
+  margin: 0 auto;
+  -webkit-transition: color 0.5s;
+  -moz-transition: color 0.5s;
+  -ms-transition: color 0.5s;
+  -o-transition: color 0.5s;
+  transition: color 0.5s;
+}
+
+a.forgot:hover{
+  color: #000;
+}
+
+div.jumbotron {
+  max-width: 1000px;
+  margin: 10px auto;
+  border-radius: 10px;
+  padding: 20px;
+}
+
+i.line {
+  max-width: 1000px;
+  height: 7px;
+  background: url(../images/line.png) 0px 0px;
+  display: block;
+  margin: 0 auto;
+}
+
+#msId {
+  display: block;
+  margin: 20px auto;
+  width: 300px;
+  font-size: 15px;
+}
+
+textarea.message {
+  display: block;
+  margin: 10px auto;
+  padding: 10px;
+}
+
+button.addmessage {
+  margin: 0 auto;
+  display: block;
+  border-radius: 10px;
+}
+
+div.result {
+  max-width: 1000px;
+  margin: 20px auto;
+  position: relative;
+  border: none;
+  border-bottom: 1px dashed black;
+  padding: 20px;
+}
+
+div.result-content {
+  width: 85%;
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+span.title {
+  width: 70%;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  font-size: 20px;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+
+span.created {
+  font-size: 14px;
+  position: absolute;
+  top: 15px;
+  right: 0;
+}
+
+
+.nav-tabs>li>a {
+  color: #888;
+  transition: background-color 0.5s;
+}
+
+#profile input{
+  display: inline-block;
+  margin-top: 40px;
+  margin-right: 10%;
+  margin-left: 10%;
+  font-size: 20px;
+}
+
+#profile button.submit, #modify button.submit{
+  display: block;
+  margin: 30px auto;
+}
+
+#profile div {
+  display: inline-block;
+  width: 40%;
+  margin: 0 50px;
+}
+
+#modify div{
+  width: 40%;
+  margin: 35px auto;
+  font-size: 20px;
+}
+
+div.user input {
+  display: block;
+  margin: 15px auto;
+  font-size: 15px;
+}
+
+button.adduser {
+  display: block;
+  margin: 0 auto;
+  width: 20%;
 }

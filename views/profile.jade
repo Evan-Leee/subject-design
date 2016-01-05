@@ -1,0 +1,40 @@
+extends layout
+
+block content
+  .profile.wow.animated.fadeInUp
+    ul.nav.nav-tabs(role='tablist')
+      li.active(role='presentation')
+        a(href='#profile', aria-controls='profile', role='tab', data-toggle='tab') 个人资料
+      li(role='presentation')
+        a(href='#modify', aria-controls='modify', role='tab', data-toggle='tab') 修改密码
+      li(role='presentation')
+        a(href='#setting', aria-controls='messages', role='tab', data-toggle='tab') 设置
+    .tab-content.wow.animated.fadeInUp
+      #profile.tab-pane.active(role='tabpanel')
+        .username
+          span 姓名:
+          input#user-name(type='text')
+        .userclass
+          span 班级:
+          input#user-class(type='text')
+        .userphone
+          span 电话:
+          input#user-phone(type='text')
+        .useraddress
+          span 地址:
+          input#user-address(type='text')
+        button.submit 确认更改
+      #modify.tab-pane(role='tabpanel')
+        .new-psd
+          span 新的密码:
+          input#new-psd(type='password')
+        .confirm
+          span 再次确认:
+          input#confirm(type='password')
+        button.submit 确认更改
+      #settings.tab-pane(role='tabpanel')
+  script.
+    $('#user-name').val('#{info.name}');
+    $('#user-class').val('#{info.klass}');
+    $('#user-phone').val('#{info.phoneNumber}');
+    $('#user-address').val('#{info.address}');

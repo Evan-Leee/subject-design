@@ -2,7 +2,8 @@ var express = require('express');
 var router = express.Router();
 
 router.get('/',function(req, res){
-  res.render('index', {page : 'index', type: req.session.type, userId: req.session.userId});
+  req.session.destroy();
+  res.render('index',{page:'index', type: 'guest', userId: ''});
 });
 
 module.exports = router;

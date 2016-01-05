@@ -1,0 +1,15 @@
+extends layout
+
+block content
+  div.textarea
+    input#msId(type='text' placeholder='给谁留言呢?')
+    textarea.message(rows='6', cols='80',placeholder='说点什么吧... ... ')
+    button.addmessage 发送
+  each message in data.message
+    .jumbotron.wow.fadeInUp.animated
+      h3 Hello, #{data.info.name}!
+      p
+        |This is a simple hero unit, a simple jumbotron-style component for calling
+        |extra attention to featured content or information.
+        |#{message}
+    i.line.wow.animated.fadeInUp

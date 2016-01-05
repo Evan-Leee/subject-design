@@ -1,11 +1,43 @@
 doctype html
 html(lang='en')
-    head
-        meta(charset='UTF-8')
-        title= title
-        link(rel='stylesheet', href='/stylesheets/bootstrap.min.css', type='text/css')
-        link(rel='stylesheet', href='/stylesheets/bookmark.css', type='text/css')
-        link(rel='stylesheet', href='/stylesheets/mricode.pagination.css',type='text/css')
-    body
-        block content
+  head
+    meta(charset='UTF-8')
+    title= '校园通讯录'
+    link(rel='stylesheet', href='/stylesheets/bootstrap.min.css', type='text/css')
+    link(rel='stylesheet', href='/stylesheets/bookmark.css', type='text/css')
+    link(rel='stylesheet', href='/stylesheets/mricode.pagination.css',type='text/css')
+    link(rel='stylesheet', href='/stylesheets/animate.css', type='text/css')
+    script(src='javascripts/jquery-2.1.4.min.js')
+    script(src='javascripts/mricode.pagination.js')
+    script(src='javascripts/bootstrap.min.js')
+    script(src='javascripts/main.js')
+    script(src='javascripts/wow.min.js')
+  body
+    .header.animated.wow.fadeInDown
+      .header-bottom
+        .top-nav
+          ul
+            li#index
+              a(href='/', data-hover='通讯录') 通讯录
+            -if(type === 'stu')
+              li#message
+                a(href='/message', data-hover='留言板')  留言板
+            li#classmates
+              a(href='#', data-hover='同学情')  同学情
+            li#events
+              a(href='/events', data-hover='大事记')  大事记
+            -if(type === 'stu')
+              li#personal
+               a(href='/profile', data-hover='个人中心') 个人中心
+            -if(userId)
+              li#logout
+                a(href='/logout', data-hover='退出')  退出
+            -else
+              li#login
+                a(href='/login', data-hover='登录') 登录
+    include js
+
+    block content
+
+    include modal
 

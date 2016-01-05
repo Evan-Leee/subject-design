@@ -85,8 +85,8 @@ ul {
 
         .m-pagination-page > li.active > a {
             color: #fff;
-            background-color: #337ab7;
-            border-color: #337ab7;
+            background-color: black;
+            border-color: black;
         }
 
         .m-pagination-page > li:first-child > a {

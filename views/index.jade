@@ -1,37 +1,15 @@
 extends layout
 
 block content
-    .content-head
-        input#search(type='search', placeholder='SEARCH...')
-        span
-            | 搜索到
-            em ｘ
-            | 个结果
-    .content-middle
-    .content-foot
-        button.add(type='button', data-toggle='modal', data-target='#addbookmarks') 添加
-        #page.m-pagination
-    script(src='javascripts/jquery-2.1.4.min.js')
-    script(src='javascripts/mricode.pagination.js')
-    script(src='javascripts/bootstrap.min.js')
-    script(src='javascripts/main.js')
-
-    #addbookmarks.modal.fade(role='dialog', aria-hidden='true')
-        .modal-dialog
-            .modal-content
-                .modal-header
-                    button.close(type='button', data-dismiss='modal') ×
-                    h4.modal-title 添加书签
-                .modal-body
-                    form.addbookmark
-                        .bookmarks
-                            | 书签名称：
-                            input#bookmark(name='bookmark', type='text')
-                        .address
-                            | 书签地址：
-                            input#address(name='bookmark', type='text')
-                        .error
-                            | 请输入正确的书签名称/书签链接
-                        button#add(type='button') 确定
+  .content-head
+    input#search.wow.fadeInLeft.animated(type='search', placeholder='SEARCH...', data-wow-delay='0.5s')
+    span.wow.fadeInRight.animated(data-wow-delay='0.5s')
+      | 共有
+      em= total
+      | 个结果
+  .content-middle
+  .content-foot
+    button.add.wow.animated.fadeInUp(type='button', data-toggle='modal', data-target='#addUser' ) 添加
+    #page.m-pagination.wow.animated.fadeInUp
 
 

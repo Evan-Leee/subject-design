@@ -1,0 +1,12 @@
+extends layout
+
+block content
+  form.login-form.wow.animated.fadeInUp(action='/', method='get')
+    .user-name
+      span 用户名
+      input#userName(type='text')
+    .password
+      span 密码
+      input#password(type='password')
+    a.forgot(href='#') 忘记密码 ?
+    button.login(type='button') 登录
