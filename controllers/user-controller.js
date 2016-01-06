@@ -15,7 +15,9 @@ UserController.prototype.getStudent = function (req, res) {
 
 UserController.prototype.addUser = function (req, res) {
   user.create({
-    id: req.param('Id'), password: req.param('psd'), type: req.param('type'),
+    id: req.param('id'),
+    password: req.param('password'),
+    type: req.param('type'),
     info:  {
       name: req.param('name'),
       klass: parseInt(req.param('klass')),
